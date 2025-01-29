@@ -18,7 +18,7 @@
     </PackageReference>
     <PackageReference Include="Microsoft.SqlServer.Server" Version="1.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
-    <PackageReference Include="Syncfusion.EJ2.MVC5" Version="28.1.38" />
+    <PackageReference Include="Syncfusion.EJ2.AspNet.Core" Version="28.1.41" />
   </ItemGroup>
 
 </Project>
