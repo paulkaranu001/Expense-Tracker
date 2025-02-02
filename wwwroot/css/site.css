@@ -1,7 +1,10 @@
 html {
   font-size: 14px;
+  font-family ="Inter"
 }
-
+*:not(.fa-solid):not(.fa):not(.e-icons){
+    font-family = "Inter"
+}
 @media (min-width: 768px) {
   html {
     font-size: 16px;
@@ -19,6 +22,17 @@ html {
  
 .e-bigger {
     font-size: x-large;
+}
+/*Button*/
+.btn:focus, .btn:active{
+    outline:none !important;
+    box-shadow: none;
+
+}
+/*Hyperlink*/
+.no-a-decoration, .no-a-decoration:hover{
+    text-decoration:none;
+    color:inherit;
 }
 /*Grid*/
 .e-grid {
