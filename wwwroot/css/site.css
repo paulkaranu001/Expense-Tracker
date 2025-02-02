@@ -16,11 +16,41 @@ html {
   position: relative;
   min-height: 100%;
 }
+ 
+.e-bigger {
+    font-size: x-large;
+}
+/*Grid*/
+.e-grid {
+    border:0;
+    border-radius: 5px;
+}
+.e-pager .e-numericitem{
+    color:#adb5bd;
+    background-color: #1a222b;
+    padding: 15px !important;
+}
+e-pager .e-numericitem:not(.e-currentitem){
+    border:none !important;
+}
+.e-pager .e-numericitem:hover{
+    color: #fff;
+}
+.e-pager .e-numericitem.e-currentitem{
+    color: #fff;
+    border:none!important;
+    background-color: #31373d;
+}
+.e-pager div.e-icons:not(e-disable){
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+}
 
 body {
-  margin-bottom: 60px;
-  background-color : #12161d;
-  color : ghostwhite;
+    margin-bottom: 60px;
+    background-color: #12161d;
+    color: ghostwhite;
 }
 /*Radio button group*/
 .e-btn-group.custom-rbt-group.e-btn{
@@ -39,4 +69,9 @@ body {
     background-color: #fff;
     color: #212b36;
     border: 1px solid #fff;
+}
+/*wodget*/
+.widget{
+    border-radius: 1rem;
+    background-color: #1a222b;
 }
