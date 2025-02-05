@@ -39,10 +39,11 @@
              </a>
              <form action="/Category/Delete/${CategoryId}" method="post">
                  @Html.AntiForgeryToken()
-                 <button type="submit"class="btn-sm btn-link no-a-decoration " onclick="return confirm(&quot; Are you sure you want autofocus delete this record?&quot;)">
-                   
+                 <button type="submit" class="btn-sm btn-link no-a-decoration " 
+                 onclick="return confirm(&quot; Are you sure to Delete this record?&quot;)">
+                        
                      <i class="fa-solid fa-trash-can fa-lg text-danger"></i>
-                 </button>
+                 </button>                 
                  
              </form>
         </div>
