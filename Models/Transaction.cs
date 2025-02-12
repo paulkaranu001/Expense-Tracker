@@ -10,7 +10,7 @@ namespace Expense_Tracker.Models
 
         // categoryId
         public int CategoryId { get; set; }
-        public Category Category { get; set; }
+        public Category? Category { get; set; }
 
         public int Amount { get; set; }
 
@@ -18,5 +18,22 @@ namespace Expense_Tracker.Models
         public string Note { get; set; }
 
         public DateTime Date { get; set; } = DateTime.Now;
+
+        [NotMapped]
+        public string? CategoryTitleIcon 
+        {
+            get
+            {
+                return Category==null? "":Category.Icon+" "+Category.Title;
+            }
+        }
+        [NotMapped]
+        public string? FormattedAmount
+        {
+            get
+            {
+                return (Category == null || Category.Type == "Expense") ? "- " : "+ " + Amount.ToString("C0");
+            }
+        }
     }
 }
