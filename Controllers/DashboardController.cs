@@ -14,14 +14,14 @@ namespace Expense_Tracker.Controllers
             _context = context;
 
         }
-        public async Task <ActionResult> Index()
+        public async Task<ActionResult> Index()
         {
             // Last 7 Days
             DateTime StartDate = DateTime.Today.AddDays(-6);
             DateTime EndDate = DateTime.Today;
 
             List<Transaction> SelectedTransations = await _context.Transactions
-                .Include(x=> x.Category)
+                .Include(x => x.Category)
                 .Where(y => y.Date >= StartDate && y.Date < EndDate)
                 .ToListAsync();
             //Total Income
@@ -42,6 +42,20 @@ namespace Expense_Tracker.Controllers
             CultureInfo culture = CultureInfo.CreateSpecificCulture("en-US");
             culture.NumberFormat.CurrencyNegativePattern = 1;
             ViewBag.Balance = String.Format(culture, "{0:C0}", Balance);
+
+            // Doughnut chart- Expense by category 
+            ViewBag.DoughnutChartData = SelectedTransations
+                .Where(i => i.Category.Type == "Expense")
+                .GroupBy(j => j.Category.CategoryId)
+                .Select(k => new
+                {
+                    categoryTitleWithIcon = k.First().Category.Icon+" "+ k.First().Category.Title,
+                    amount = k.Sum(j => j.Amount),
+                    formattedAmount = k.Sum(j => j.Amount).ToString("C0"),
+                })
+                .ToList();
+                
+
             return View();
         }
     }
