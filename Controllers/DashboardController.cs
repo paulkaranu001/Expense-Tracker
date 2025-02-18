@@ -12,7 +12,7 @@ namespace Expense_Tracker.Controllers
         public DashboardController(ApplicationDbContext context)
         {
             _context = context;
-
+          
         }
         public async Task<ActionResult> Index()
         {
@@ -51,7 +51,7 @@ namespace Expense_Tracker.Controllers
                 {
                     categoryTitleWithIcon = k.First().Category.Icon+" "+ k.First().Category.Title,
                     amount = k.Sum(j => j.Amount),
-                    formattedAmount = k.Sum(j => j.Amount).ToString("C0"),
+                    FormattedAmount = k.Sum(j => j.Amount).ToString("C0"),
                 })
                 .ToList();
                 
